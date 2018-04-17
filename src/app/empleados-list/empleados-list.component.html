@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-header>Listado de Empleados</mat-card-header>
+
+  <button class="btn btn-primary"><a mat-button [routerLink]="['/users-add']">Añadir un user</a></button>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let u of users">
+        <h3 mat-line>
+          <p>{{u.name}} {{u.email}}</p>
+        </h3>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+
+  <!--<button mat-fab color="primary" [routerLink]="['/empleados-add']">A&ntilde;adir</button>-->
+</mat-card>
