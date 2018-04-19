@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 
@@ -15,13 +14,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {UsersListComponent} from './empleados-list/empleados-list.component';
 import {EmpleadosEditComponent} from './empleados-edit/empleados-edit.component';
 import { UsersAddComponent } from './users-add/users-add.component';
+import { UsersDeleteComponent } from './users-delete/users-delete.component';
 /*import {DepartamentosListComponent} from './departamentos-list/departamentos-list.component';
 import {DepartamentosEditComponent} from './departamentos-edit/departamentos-edit.component';
 import {DelegacionesListComponent} from './delegaciones-list/delegaciones-list.component';
 import {DelegacionesEditComponent} from './delegaciones-edit/delegaciones-edit.component';
 */
 const appRoutes: Routes = [
-  // GEN
+  // GENERAL
   {path: '', redirectTo: '/', pathMatch: 'full'}
   // EMPLEADOS
   ,
@@ -32,11 +32,11 @@ const appRoutes: Routes = [
   {
     path: 'users-add',
     component: UsersAddComponent
-  }/*,
+  },
   {
-    path: 'empleados-edit/:id',
-    component: EmpleadosEditComponent
-  }
+    path: 'users-delete',
+    component: UsersDeleteComponent
+  }/*
   // DEPARTAMENTOS
   ,
   {
@@ -72,6 +72,8 @@ const appRoutes: Routes = [
     AppComponent,
     UsersListComponent,
     UsersAddComponent,
+    UsersDeleteComponent,
+    UsersDeleteComponent,
     //EmpleadosEditComponent,
     //DepartamentosListComponent,
     //DepartamentosEditComponent,

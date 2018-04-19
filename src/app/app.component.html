@@ -1,7 +1,10 @@
 <mat-toolbar color="primary">
+    <h1>Bienvenido a la app</h1>
   <span><a mat-button [routerLink]="['']">{{title}}</a></span>
   <span></span>
   <span><a mat-button [routerLink]="['/users-list']">Users</a></span>
+  <span><a mat-button [routerLink]="['/users-add']">Añadir users</a></span>
+  <span><a mat-button [routerLink]="['/users-delete']">Eliminar User</a></span>
   <!--<span><a mat-button [routerLink]="['/departamentos-list']">Departamentos</a></span>
   <span><a mat-button [routerLink]="['/delegaciones-list']">Delegaciones</a></span>-->
 </mat-toolbar>

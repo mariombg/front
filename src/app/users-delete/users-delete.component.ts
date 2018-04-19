@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import {GestorService} from '../shared/gestor/gestor.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Subscription} from 'rxjs/Subscription';
 import {ActivatedRoute, Router} from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
-import { NgForm } from '@angular/forms';
+import {GestorService} from '../shared/gestor/gestor.service';
+import {NgForm} from '@angular/forms';
 import { UserModel } from '../model/user.model';
 import { OK } from '../model/httpstatus';
+
 @Component({
-  selector: 'app-users-add',
-  templateUrl: './users-add.component.html',
-  styleUrls: ['./users-add.component.css'],
+  selector: 'app-users-delete',
+  templateUrl: './users-delete.component.html',
+  styleUrls: ['./users-delete.component.css'],
   providers: [GestorService]
 })
-export class UsersAddComponent implements OnInit {
+export class UsersDeleteComponent implements OnInit {
+
   e: any = {};
   sub: Subscription;
-  private isValid: boolean = true;
+  private NameIsValid: boolean = true;
   private message: string = "";
   private user: UserModel;
   constructor(private gestorService: GestorService, private route: ActivatedRoute, private router: Router,) { 
@@ -36,19 +38,20 @@ export class UsersAddComponent implements OnInit {
       }
     });
   }
-  public save(): void{
-    this.isValid = this.gestorService.validate(this.user);
-    if(this.isValid){
-      this.gestorService.save(this.user).subscribe(res =>{
-        if(res.responseCode = OK){
+  public remove(name: string): void{
+    this.NameIsValid = this.gestorService.validateName(name);
+    if(this.NameIsValid){
+      this.gestorService.remove(this.user.name).subscribe(res =>{
+        if(res = OK){
           this.gotoList();
+          this.message = "Borrado exitosamente";
         }else{
-          this.message = res.message;
-          this.isValid = false;
+          this.message = "Error al borrar";
+          this.NameIsValid = false;
         }
       });
     }else{
-      this.message = "Los campos son invalidos";
+      this.message = "Id no válido";
     }
   }
   gotoList() {

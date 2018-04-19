@@ -43,7 +43,7 @@ export class EmpleadosEditComponent implements OnInit {
     this.router.navigate(['/empleados-list']);
   }
 
-  save(form: NgForm) {
+  /*save(form: NgForm) {
     this.gestorService.save('/', form).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
@@ -53,5 +53,5 @@ export class EmpleadosEditComponent implements OnInit {
     this.gestorService.remove('/employee', id).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
-  }
+  }*/
 }

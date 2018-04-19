@@ -1,29 +1,9 @@
-<mat-card>
-    <form #empleadoForm="ngForm" (ngSubmit)="save(empleadoForm.value)">
-      <mat-card-header>
-        <mat-card-title>
-          <h2>{{e.object ? 'Editar' : 'A&ntilde;adir'}} Empleado</h2>
-        </mat-card-title>
-      </mat-card-header>
-      <input type="hidden" name="id" *ngIf="e.object" [(ngModel)]="e.object.id">
-      <mat-card-content>
-        <mat-form-field>
-          <input matInput placeholder="Nombre" [(ngModel)]="e.object.name" required name="name" #name>
-        </mat-form-field>
-      </mat-card-content>
-      <mat-card-content>
-        <mat-form-field>
-          <input matInput placeholder="Email" [(ngModel)]="e.object.email" required name="email" #email>
-        </mat-form-field>
-      </mat-card-content>
-      <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit"	[disabled]="!empleadoForm.form.valid">Guardar</button>
-      <button mat-raised-button color="secondary"	(click)="remove(e.object.id)" *ngIf="e.object.name" type="button">Eliminar</button>
-      <a mat-button routerLink="/empleados-list">Cancelar</a> </mat-card-actions>
+  <div *ngIf="!isValid" class="alert alert-danger">
+    <strong>Danger!</strong>{{message}}
+  </div>
+    <form #empleadoForm="ngForm">
+      <input type="hidden" name="id" *ngIf="user" [(ngModel)]="user.id">
+      <input type="text" matInput placeholder="Nombre" [(ngModel)]="user.name" required name="name" #name>
+      <input type="text" placeholder="Email" [(ngModel)]="user.email" required name="email" #email>
+      <button mat-raised-button color="primary" type="submit"	(click)="save()">Guardar</button>
     </form>
-    
-    <pre>Form</pre>
-    <pre>{{empleadoForm.value | json}}</pre>
-    <pre>Requested</pre>
-    <pre>{{e | json}}</pre>
-  </mat-card>

@@ -1,14 +1,23 @@
 <mat-card>
   <mat-card-header>Listado de Empleados</mat-card-header>
-
-  <button class="btn btn-primary"><a mat-button [routerLink]="['/users-add']">Añadir un user</a></button>
+  <a mat-button [routerLink]="['/users-add']">Añadir un user</a>
   <mat-card-content>
     <mat-list>
-      <mat-list-item *ngFor="let u of users">
-        <h3 mat-line>
-          <p>{{u.name}} {{u.email}}</p>
-        </h3>
-      </mat-list-item>
+          <TABLE border="2">
+            <thead>
+                </thead>
+                <tbody>
+            <TR>
+              <mat-list-item *ngFor="let u of users">
+                <Td>{{u.id}}</Td>
+                <TD>{{u.name}}</TD>
+                <TD>{{u.email}}</TD>
+                <td><button class="btn btn-primary" [routerLink]="['/user-edit']">Editar</button></td>
+                <td><button class="btn btn-danger" [routerLink]="['/user-delete']">Eliminar</button></td>
+              </mat-list-item>
+            </TR>
+            </tbody>
+          </TABLE>
     </mat-list>
   </mat-card-content>
 
